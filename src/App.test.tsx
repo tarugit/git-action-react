@@ -1,12 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import App from "./App";
 
 describe("App Component", () => {
-  it("renders the heading correctly", () => {
-    render(<App />);
+  it("contains at least one img tag", () => {
+    const { container } = render(<App />);
 
-    // Checks if the text "Vite + React" rendered by default exists in the DOM
-    expect(screen.getByText(/Vite \+ React/i)).toBeInTheDocument();
+    // Selects all <img> tags in the rendered HTML
+    const images = container.querySelectorAll("img");
+
+    // Asserts that at least one <img> tag exists
+    expect(images.length).toBeGreaterThanOrEqual(1);
   });
 });
