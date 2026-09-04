@@ -3,11 +3,13 @@ on: push
 jobs:
   testcase:
     runs-on: ubuntu-latest
+
     steps:
       - name: Greet user
         uses: actions/checkout@v7
+
       - name: Install Node version
-      - uses: actions/setup-node@v7
+        uses: actions/setup-node@v7
         with:
           node-version: 20
       - name: Print Node version
@@ -15,5 +17,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
       - name: Run tests
         run: npm run test
