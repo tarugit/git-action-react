@@ -1,17 +1,21 @@
 name: Test case
-on: push
+
+on: push # Specify your target branch
+
 jobs:
   testcase:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Greet user
-        uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install Node version
-        uses: actions/setup-node@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
+
       - name: Print Node version
         run: node -v
 
@@ -19,4 +23,4 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test
+        run: npx vitest run
