@@ -72,4 +72,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    steps:
+      - name: Deploy to GitHub Pages
+        run: echo "Deploying to GitHub Pages..."
+
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
