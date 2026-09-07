@@ -5,7 +5,7 @@ on:
     branches:
       - main # Specify your target branch
       - "feature/**" # Specify your feature branches
-    path-ignore:
+    paths-ignore:
       - "README.md" # Ignore changes to README.md
       - ".github/workflows/**" # Ignore changes to workflow files
   workflow_dispatch: # Allow manual triggering of the workflow
@@ -77,8 +77,8 @@ jobs:
       id-token: write # to verify the deployment originates from an appropriate source
 
     environment:
-      - name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
