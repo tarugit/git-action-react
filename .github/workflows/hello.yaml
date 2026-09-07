@@ -1,5 +1,6 @@
 name: Greeting Workflow
-on: push
+on:
+  workflow_dispatch: # Allow manual triggering of the workflow
 jobs:
   greet:
     runs-on: ubuntu-latest
